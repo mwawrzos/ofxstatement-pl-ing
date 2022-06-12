@@ -10,17 +10,17 @@ from distutils.core import setup
 
 import unittest
 
-version = "0.1.1"
+version = "0.1.0"
 
 with open('README.md') as f:
     long_description = f.read()
 
-setup(name='ofxstatement-be-ing',
+setup(name='ofxstatement-pl-ing',
       version=version,
-      author="Bernardo Bandos",
+      author="Marek Wawrzos",
       author_email="@hotmail.com",
-      url="https://github.com/jbbandos/ofxstatement-be-ing",
-      description=("OFXStatement plugin for ING (Belgium)"),
+      url="https://github.com/mwawrzos/ofxstatement-pl-ing",
+      description=("OFXStatement plugin for ING (Poland)"),
       long_description=open("README.md").read(),
       long_description_content_type='text/markdown',
       license="GPLv3",
@@ -39,7 +39,7 @@ setup(name='ofxstatement-be-ing',
       namespace_packages=["ofxstatement", "ofxstatement.plugins"],
       entry_points={
           'ofxstatement':
-          ['ingbe = ofxstatement.plugins.ingbe:IngBePlugin']
+          ['ingpl = ofxstatement.plugins.ingpl:IngPlPlugin']
           },
       install_requires=['ofxstatement'],
       extras_require={'test': ["freezegun", "pytest"]},
