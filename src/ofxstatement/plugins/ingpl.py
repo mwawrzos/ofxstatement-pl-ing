@@ -20,10 +20,10 @@ class IngPlParser(CsvStatementParser):
 
     date_format = "%Y-%m-%d"
     mappings = {
-        'check_no': 4,
+        'check_no': 3,
         'date': 0,
         'payee': 2,
-        'memo': 3,
+        'memo': 4,
         'amount': 8,
     }
 
@@ -67,7 +67,8 @@ class IngPlParser(CsvStatementParser):
         stmt.currency = account_type[-4:-1]
         stmt.bank_id = bank_id
 
-        statement.recalculate_balance(stmt)
+        if stmt.lines:
+            statement.recalculate_balance(stmt)
 
         return stmt
 
@@ -92,6 +93,7 @@ class IngPlParser(CsvStatementParser):
             self.currency = saldo_curr
         
         if self.currency != saldo_curr or self.currency != trans_curr:
+            print(self.currency, saldo_curr, trans_curr)
             print(line)
             raise ValueError('Different currencies not supported!')
 
