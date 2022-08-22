@@ -61,4 +61,4 @@ for account in rows:
             [transakcje], rows[account],
             footter,
         ))
-    tool.convert(tool.argparse.Namespace(type='ingpl', input=f'{fname}.csv', output=f'{fname}.ofx'))
+    tool.convert(tool.argparse.Namespace(type='ingpl', input=f'{fname}.csv', output=f'{fname}.ofx', pretty=True))
